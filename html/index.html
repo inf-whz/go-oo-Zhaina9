@@ -1,0 +1,27 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+</head>
+<body>
+
+<table>
+{{range $key,$value := .}}
+
+    <tr>
+    <td>{{$key}}</td><td>{{$value.Name}}</td><td>{{$value.Surname}}</td><td>{{$value.Age}}</td>
+    </tr>
+
+    {{end}}
+</table>
+
+<form action="new" method="get">
+    <textarea name="message"></textarea>
+    <input type="submit" name="Submit">
+    </form>
+
+</body>
+</html>
+{{end}}
