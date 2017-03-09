@@ -7,13 +7,10 @@ import(
 	)
 
 type person struct{
-	Id      int
-	Name    string
-	Vorname string
-	Tel     int
-	Email   string
-	ORT     int
-	Region  string
+	Id int
+	Name string
+	Surname string
+	Age int
 }
 
 func main(){
@@ -22,7 +19,7 @@ func main(){
 		log.Fatal(err)
 	}
 
-	rows, err := db.Query("select * fron person")
+	rows, err := db.Query("SELECT * FROM person")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -35,7 +32,7 @@ func main(){
 
 		pers := new(person)
 
-		err := rows.Scan(&pers.Id, &pers.Name, &pers.Vorname, &pers.Tel, &pers.Email, &pers.ORT, &pers.Region)
+		err := rows.Scan(&pers.Id,&pers.Name,&pers.Surname,&pers.Age)
 
 		if err != nil{
 			log.Fatal(err)
